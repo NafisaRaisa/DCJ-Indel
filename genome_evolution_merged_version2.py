@@ -425,6 +425,7 @@ def perform_insertion(lst, all_gene,sub_pos, adj, length):
 
     #find the largest absolute value in the list
     largest_abs = max(all_gene, key=abs)
+    print("largest abs: " + str(largest_abs))
 
     #getting the sublist
     sublist=lst[sub_pos]
@@ -446,7 +447,7 @@ def perform_insertion(lst, all_gene,sub_pos, adj, length):
     final_length=int(length)###### changed length[0] to length
 
     for i in range(1,final_length+1):
-      evolved_sublist.append(largest+i)
+      evolved_sublist.append(int(largest)+int(i))
     
     #append whatever is left
     for i in sublist[adj+1:]:
@@ -770,7 +771,7 @@ def main():
        original_genome=list
        my_genome = copy.deepcopy(original_genome)
        #original_gene: the gene content of the original genome
-       original_gene=[element for sublist in original_genome for element in sublist if element!=0]
+       original_gene=[element for sublist in my_genome for element in sublist if element!=0]
   
        #creating a list for weights
        weights_sublist=[]
@@ -832,6 +833,8 @@ def main():
                 #list of ditances
                 dList=[]
                 dList.append(0)
+              
+                all_gene=copy.deepcopy(original_gene)
                 
                 print("This is the  step number for the avg: "+ str(q+1))
                 for p in range(0,int(num_steps)):
