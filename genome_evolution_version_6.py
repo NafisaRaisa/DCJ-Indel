@@ -751,6 +751,8 @@ def distance(evolved_list, i):
     output_lines = stdout.decode().splitlines()
     
     for line in output_lines:
+	 print("this is the output line from unimog:")
+         print(line)
         if "(DCJ-indel) :" in line:
             distance_str = line.split("(DCJ-indel) :")[1].strip()
             try:
